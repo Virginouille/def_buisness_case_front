@@ -14,4 +14,9 @@ export class AuthService {
   login(credentials: { username: string, password: string }) {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
+
+  //Stocker le token
+  // Gérer la déco
+  // Vérifier si l'utilisateur est connecté
+
 }
