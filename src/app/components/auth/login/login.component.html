@@ -1,28 +1,51 @@
-<h1>Connexion</h1>
 <!--Formulaire de connexion-->
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
-    <input formControlName="username" placeholder="Nom Utilisateur" />
-    @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
-    <div>
-        Nom d'utilisateur requis, 4-20 caractères, lettres et chiffres seulement.
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">Connexion</h1>
+
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nom d'utilisateur</label>
+                            <input id="username" type="text" class="form-control" formControlName="username"
+                                placeholder="Nom d'utilisateur" />
+                            @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+                            <div class="alert alert-danger mt-2">
+                                Nom d'utilisateur requis, 4-20 caractères, lettres et chiffres seulement.
+                            </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input id="password" type="password" class="form-control" formControlName="password"
+                                placeholder="Mot de passe" />
+                            @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                            <div class="alert alert-danger mt-2">
+                                Mot de passe requis, 6-20 caractères, au moins 1 majuscule, 1 minuscule, 1 chiffre et 1
+                                caractère spécial.
+                            </div>
+                            }
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+                                Connexion
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <p>
+                            Vous n'avez pas de compte ? <a class="createAcount" [routerLink]="'/register'">Créer un
+                                compte</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    }
-
-    <input type="password" formControlName="password" placeholder="Mot de passe" />
-    @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
-    <div>
-        Mot de passe requis, 6-20 caractères, au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.
-    </div>
-    }
-
-    @if (loginForm.invalid) {
-    <button type="submit" disabled>Connexion</button>
-    } @else {
-    <button type="submit">Connexion</button>
-    }
-
-</form>
-
-<!--Lien vers la creation d'un compte utilisateur-->
-<a href="#" class="createAcount">Créer un compte</a>
+</div>
