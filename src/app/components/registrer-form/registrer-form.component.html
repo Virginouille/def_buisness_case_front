@@ -1,0 +1,114 @@
+<!--Formulaire d'inscription à Electricity Buisness-->
+<div class="container my-5">
+    <div class="row align-items-center">
+
+        <!-- Colonne infos Electricity Buisness -->
+        <div class=" col-md-3">
+            <div class="mb-3">
+                <p class="fw-bold">Lorem ipsum amet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod malesuada felisut</p>
+            </div>
+            <div class="mb-3">
+                <p class="fw-bold">Lorem ipsum amet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod malesuada felisut</p>
+            </div>
+            <div class="mb-3">
+                <p class="fw-bold">Lorem ipsum amet.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod malesuada felisut</p>
+            </div>
+        </div>
+
+        <!-- Colonne zone vide -->
+        <div class="col-md-2 zoneFormRegister">
+        </div>
+
+        <!-- Colonne formulaire -->
+        <div class="col-md-7 bg-primary rounded">
+            <h2 class="text-light text-center my-4">Créer un compte</h2>
+            <form>
+                <!--Ligne Prénom et nom-->
+                <div class="row zonePrenomEtNom">
+                    <div class="col-6 mb-3">
+                        <label for="prenom" class="form-label"></label>
+                        <input type="text" class="form-control" id="prenom" placeholder="Prenom"
+                            aria-describedby="PrenomInscription">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="nom" class="form-label"></label>
+                        <input type="text" class="form-control" id="nom" placeholder="Nom"
+                            aria-describedby="NomInscription">
+                    </div>
+                </div>
+
+                <!--Ligne email-->
+                <div class="mb-3">
+                    <label for="email" class="form-label text-light"></label>
+                    <input type="email" class="form-control" id="email" placeholder="Email"
+                        aria-describedby="EmailInscription">
+                </div>
+
+                <!--Ligne téléphone et date de naissance-->
+                <div class="row zoneNumeroEtDateDeNaissance">
+                    <div class="col-6 mb-3">
+                        <label for="telephone" class="form-label"></label>
+                        <input type="tel" class="form-control" id="telephone" placeholder="Téléphone"
+                            aria-describedby="TelephoneInscription">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="dateDeNaissance" class="form-label"></label>
+                        <input type="date" class="form-control" id="dateDeNaissance"
+                            aria-describedby="DateDeNaissanceInscription">
+                    </div>
+                </div>
+
+                <!--Ligne adresse-->
+                <div class="mb-3">
+                    <label for="adresse" class="form-label"></label>
+                    <input type="text" class="form-control" id="adresse" placeholder="Adresse"
+                        aria-describedby="AdresseInscription">
+                </div>
+
+                <!--Ligne ville et code postal-->
+                <div class="row zoneVilleEtCodePostal">
+                    <div class="col-6 mb-3">
+                        <label for="ville" class="form-label"></label>
+                        <input type="text" class="form-control" id="ville" placeholder="Ville"
+                            aria-describedby="VilleInscription">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="codepostal" class="form-label"></label>
+                        <input type="number" class="form-control" id="codepostal" placeholder="Code postal"
+                            aria-describedby="CodePostalInscription">
+                    </div>
+                </div>
+
+                <!--Ligne mot de passe-->
+                <div class="mb-3">
+                    <label for="motdepasse" class="form-label text-light"></label>
+                    <input type="password" class="form-control" id="motdepasse" placeholder="Mot de passe">
+                </div>
+
+                <!--Ligne confirmation mot de passe-->
+                <div class="mb-3">
+                    <label for="confirmationmotdepasse" class="form-label text-light"></label>
+                    <input type="password" class="form-control" id="confirmationmotdepasse"
+                        placeholder="Confirmation mot de passe">
+                </div>
+
+                <!--Ligne Checkbox-->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="checkbox" required>
+                    <label class="form-check-label text-light" for="checkbox">
+                        J’accepte la politique de
+                        confidentialité
+                    </label>
+                </div>
+
+                <!--Bouton Enregistrer/Submit-->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-light my-4">S'enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
