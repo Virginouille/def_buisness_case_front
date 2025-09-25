@@ -4,6 +4,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrerFormComponent } from './components/auth/registrer-form/registrer-form.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
+import { BorneComponent } from './dashboard/borne/borne.component';
 
 export const routes: Routes = [
 
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
 
     //Partie dashboard
-    { path: 'home_dashboard', component: HomeDashboardComponent }
+    { path: 'home_dashboard', component: HomeDashboardComponent },
+    { path: 'borne', component: BorneComponent }
 ];
