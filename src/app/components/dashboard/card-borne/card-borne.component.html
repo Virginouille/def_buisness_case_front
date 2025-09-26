@@ -37,7 +37,8 @@
                         </p>
 
                         <!--Modifier la borne-->
-                        <a [routerLink]="['/modifier_borne']" class="modifier-borne-link">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modifierBorneModal"
+                            class="modifier-borne-link">
                             <div class="zoneModifier d-flex align-items-center justify-content-center my-4">
                                 <i class="bi bi-gear text-white fs-4 me-2"></i>
                                 <p class="modifier text-white mb-0">Modifier</p>
@@ -45,6 +46,25 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modale -->
+<div class="modal fade" id="modifierBorneModal" tabindex="-1" aria-labelledby="modifierBorneModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title text-center w-100" id="modifierBorneModalLabel">Modifier les informations de la
+                    borne
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                <app-modify-borne></app-modify-borne>
             </div>
         </div>
     </div>
