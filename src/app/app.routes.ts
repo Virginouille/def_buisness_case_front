@@ -6,6 +6,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { HomeDashboardComponent } from './components/dashboard/home-dashboard/home-dashboard.component';
 import { BorneComponent } from './components/dashboard/borne/borne.component';
 import { ModifyBorneComponent } from './components/dashboard/modify-borne/modify-borne.component';
+import { ReservationRequestsComponent } from './components/dashboard/reservation-requests/reservation-requests.component';
 
 export const routes: Routes = [
 
@@ -21,5 +22,6 @@ export const routes: Routes = [
     //Partie dashboard
     { path: 'home_dashboard', component: HomeDashboardComponent },
     { path: 'borne', component: BorneComponent },
-    { path: 'modifier_borne', component: ModifyBorneComponent }
+    { path: 'modifier_borne', component: ModifyBorneComponent },
+    { path: 'demande_de_reservations', component: ReservationRequestsComponent }
 ];

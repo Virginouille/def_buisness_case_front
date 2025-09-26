@@ -51,10 +51,12 @@
         <div class="col-3">
 
             <!--Demandes à traiter-->
-            <div class="demandes bg-primary rounded text-center">
-                <img src="/assets/home_dashboard_demande_resa.svg" style="width: 130px" alt="demandes a traiter" />
-                <p class="demandes text-white fw-semibold fs-5">Demandes <br />à traiter</p>
-            </div>
+            <a [routerLink]="['/demande_de_reservations']" class="demandes-de-reservation-link">
+                <div class="demandes bg-primary rounded text-center">
+                    <img src="/assets/home_dashboard_demande_resa.svg" style="width: 130px" alt="demandes a traiter" />
+                    <p class="demandes text-white fw-semibold fs-5">Demandes <br />à traiter</p>
+                </div>
+            </a>
             <!--Réservations passées-->
             <div class="reservationsPassees text-center bg-primary rounded">
                 <img src="#" alt="reservations passees" />
