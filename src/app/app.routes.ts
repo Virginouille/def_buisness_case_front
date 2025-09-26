@@ -3,8 +3,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrerFormComponent } from './components/auth/registrer-form/registrer-form.component';
 import { AuthComponent } from './components/auth/auth.component';
-import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
-import { BorneComponent } from './dashboard/borne/borne.component';
+import { HomeDashboardComponent } from './components/dashboard/home-dashboard/home-dashboard.component';
+import { BorneComponent } from './components/dashboard/borne/borne.component';
+import { ModifyBorneComponent } from './components/dashboard/modify-borne/modify-borne.component';
 
 export const routes: Routes = [
 
@@ -19,5 +20,6 @@ export const routes: Routes = [
 
     //Partie dashboard
     { path: 'home_dashboard', component: HomeDashboardComponent },
-    { path: 'borne', component: BorneComponent }
+    { path: 'borne', component: BorneComponent },
+    { path: 'modifier_borne', component: ModifyBorneComponent }
 ];

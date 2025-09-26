@@ -1,0 +1,65 @@
+<h2>Tableau de bord</h2>
+
+<div class="container vh-100">
+
+    <!--Zone stats-->
+    <div class="row bg-secondary rounded mt-5">
+        <h5>Ce mois-ci</h5>
+
+        <div class="col d-flex justify-content-between">
+
+            <!--Image et montant : montant gagné-->
+            <div class="montantGagne">
+                <img src="#" alt="image monnaie" />
+                <p class="nbrGagne">250 €</p>
+            </div>
+
+            <!--Nombre de voiture rechargée-->
+            <div class="nbrDeVoitureRechargees">
+                <img src="#" alt="dessin voiture" />
+                <p class="nbrVoitures">10 recharges</p>
+            </div>
+
+            <!--Nombre de KW consommés-->
+            <div class="nbrDeWatts">
+                <img src="#" alt="dessin eclaire" />
+                <p class="nbrDeWatts">180 kw</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Zone choix-->
+    <div class="row mt-5">
+
+        <!--Mes bornes-->
+        <div class="col-3">
+            <a [routerLink]="['/borne']" class="mesBornes-link">
+                <div class="mesBornes bg-primary rounded text-center">
+                    <img src="/assets/dashboard_logo_mes_bornes.png" class="my-3" style="width: 100px"
+                        alt="mes bornes" />
+                    <p class="mesBornes text-white fw-semibold fs-5 mb-0">Mes <br />bornes</p>
+                </div>
+            </a>
+            <!--Réservations en cours-->
+            <div class="reservationsEnCours text-center bg-primary rounded">
+                <img src="#" alt="reservations en cours" />
+                <p class="text-white fw-semibold fs-5">Réservations <br />en cours</p>
+            </div>
+        </div>
+
+        <div class="col-3">
+
+            <!--Demandes à traiter-->
+            <div class="demandes bg-primary rounded text-center">
+                <img src="/assets/home_dashboard_demande_resa.svg" style="width: 130px" alt="demandes a traiter" />
+                <p class="demandes text-white fw-semibold fs-5">Demandes <br />à traiter</p>
+            </div>
+            <!--Réservations passées-->
+            <div class="reservationsPassees text-center bg-primary rounded">
+                <img src="#" alt="reservations passees" />
+                <p class="text-white fw-semibold fs-5">Réservations <br />passées</p>
+            </div>
+        </div>
+    </div>
+</div>
