@@ -7,6 +7,7 @@ import { HomeDashboardComponent } from './components/dashboard/home-dashboard/ho
 import { BorneComponent } from './components/dashboard/borne/borne.component';
 import { ModifyBorneComponent } from './components/dashboard/modify-borne/modify-borne.component';
 import { ReservationRequestsComponent } from './components/dashboard/reservation-requests/reservation-requests.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 export const routes: Routes = [
 
@@ -18,6 +19,9 @@ export const routes: Routes = [
     { path: 'auth', component: AuthComponent },
     { path: 'register', component: RegistrerFormComponent },
     { path: 'login', component: LoginComponent },
+
+    //Partie contact
+    { path: 'contact', component: ContactFormComponent },
 
     //Partie dashboard
     { path: 'home_dashboard', component: HomeDashboardComponent },

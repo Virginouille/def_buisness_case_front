@@ -6,8 +6,8 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="zonePages">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse justify-content-around" id="zonePages">
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Le concept</a>
                 </li>
@@ -19,7 +19,8 @@
                 </li>
             </ul>
         </div>
-        <div class="collapse navbar-collapse" id="zoneConnexion">
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="zoneContactConnexion">
+            <input class="btn btn-primary" [routerLink]="'/contact'" type="button" value="Nous contacter">
             <input class="btn btn-outline-secondary" [routerLink]="'/auth'" type="button" value="Connexion">
             <!--ajouter le composant de login-->
         </div>

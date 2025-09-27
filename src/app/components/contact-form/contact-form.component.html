@@ -1,1 +1,41 @@
-<p>contact-form works!</p>
+<!--Formulaire de contact-->
+<div class="container my-5">
+    <div class="row justify-content-center">
+
+        <!-- Colonne formulaire -->
+        <div class="col-md-6 bg-primary rounded p-4">
+            <h2 class="text-light text-center mb-4">Nous contacter</h2>
+            <form class="d-flex flex-column align-items-center">
+
+                <!--Ligne Prénom-->
+                <div class="mb-3 w-100">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                </div>
+
+                <!--Ligne Nom-->
+                <div class="mb-3 w-100">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom">
+                </div>
+
+                <!--Ligne email-->
+                <div class="mb-3 w-100">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+
+                <!--Ligne téléphone-->
+                <div class="mb-3 w-100">
+                    <input type="tel" class="form-control" id="telephone" placeholder="Téléphone">
+                </div>
+
+                <!--Message-->
+                <div class="mb-3 w-100">
+                    <label for="message" class="form-label text-light">Votre message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control"></textarea>
+                </div>
+
+                <!--Bouton Enregistrer/Submit-->
+                <button type="submit" class="btn btn-light fw-bold w-50">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
