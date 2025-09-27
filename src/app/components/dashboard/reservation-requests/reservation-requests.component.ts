@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ReservationCardComponent } from '../reservation-request-card/reservation-card.component';
+import { ReservationCardRequestComponent } from '../reservation-card-request/reservation-card-request.component';
 
 @Component({
   selector: 'app-reservation-requests',
   standalone: true,
-  imports: [ReservationCardComponent],
+  imports: [ReservationCardRequestComponent],
   templateUrl: './reservation-requests.component.html',
   styleUrl: './reservation-requests.component.css'
 })
