@@ -9,6 +9,7 @@ import { ModifyBorneComponent } from './components/dashboard/modify-borne/modify
 import { ReservationRequestsComponent } from './components/dashboard/reservation-requests/reservation-requests.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ReserveElectricalTerminalComponent } from './components/reservation/reserve-electrical-terminal/reserve-electrical-terminal.component';
+import { ReservationSummaryComponent } from './components/reservation/reservation-summary/reservation-summary.component';
 
 export const routes: Routes = [
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
 
     //Partie réservation borne
     { path: 'reserver-borne', component: ReserveElectricalTerminalComponent },
+    { path: 'recapitulatif-reservation', component: ReservationSummaryComponent },
 
     //Partie contact
     { path: 'contact', component: ContactFormComponent },
