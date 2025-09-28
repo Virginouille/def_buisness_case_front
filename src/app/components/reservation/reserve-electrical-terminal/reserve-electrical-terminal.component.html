@@ -13,3 +13,8 @@
         </div>
     </div>
 </div>
+
+<!--Modale réservation ok-->
+@if (showModal) {
+<app-terminal-reserve-modal (close)="showModal = false"></app-terminal-reserve-modal>
+}
