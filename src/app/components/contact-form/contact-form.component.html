@@ -55,7 +55,7 @@
                 <!--Ligne téléphone-->
                 <div class="mb-3 w-100">
                     <input type="tel" inputmode="numeric" class="form-control" id="telephone" placeholder="Téléphone"
-                        formControlName="telephone">
+                        formControlName="telephone" (input)="onTelephoneInput($event)">
                     @if (contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched) {
                     <div class="text-warning small">
                         @if (contactForm.get('telephone')?.errors?.['required']) {
