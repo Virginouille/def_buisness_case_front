@@ -11,7 +11,7 @@
                 <div class="mb-3 w-100">
                     <input type="text" class="form-control" id="prenom" placeholder="Prénom" formControlName="prenom">
                     @if (contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched) {
-                    <div class="text-warning small">
+                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
                     </div>
                     }
                 </div>
@@ -20,7 +20,7 @@
                 <div class="mb-3 w-100">
                     <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
                     @if (contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched) {
-                    <div class="text-warning small">
+                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
                     </div>
                     }
                 </div>
@@ -29,7 +29,7 @@
                 <div class="mb-3 w-100">
                     <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
                     @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                    <div class="text-warning small">
+                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
                     </div>
                     }
                 </div>
@@ -53,11 +53,15 @@
                 <!--Message-->
                 <div class="mb-3 w-100">
                     <label for="message" class="form-label text-light">Votre message</label>
-                    <textarea id="message" name="message" rows="5" class="form-control"></textarea>
+                    <textarea id="message" name="message" rows="5" class="form-control"
+                        formControlName="message"></textarea>
+                    @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                    <div class="text-warning small"></div><!--A completer avec les messages d'erreurs-->
+                    }
                 </div>
 
                 <!--Bouton Enregistrer/Submit-->
-                <button type="submit" class="btn btn-light fw-bold w-50">Envoyer</button>
+                <button type="submit" class="btn btn-light fw-bold w-50" [disabled]="!submitEnabled">Envoyer</button>
             </form>
         </div>
     </div>

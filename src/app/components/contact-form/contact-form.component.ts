@@ -12,6 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactFormComponent {
 
   contactForm: FormGroup;
+  submitEnabled = false; // par défaut le bouton est désactivé
+
+  ngOnInit() {
+    this.contactForm.valueChanges.subscribe(() => {
+      // active le bouton seulement si le formulaire est valide
+      this.submitEnabled = this.contactForm.valid;
+    });
+  }
 
   //Structure du formulaire
   constructor(private fb: FormBuilder) {
@@ -19,7 +27,7 @@ export class ContactFormComponent {
       prenom: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\s-]{2,}$/)]],
       nom: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\s-]{2,}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      telephone: ['', [Validators.required, Validators.pattern(/^(?:[0-9] ?){10}$/)]], //Numéro de téléphone avec possibiliés de . et d'espaces
+      telephone: ['', [Validators.required, Validators.pattern(/^(?:[0-9] ?){10}$/)]], //Numéro de téléphone avec possibiliés de point et d'espaces
       message: ['', Validators.required]
     });
   }
