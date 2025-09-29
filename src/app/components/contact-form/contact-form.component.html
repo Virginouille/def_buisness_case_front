@@ -5,26 +5,49 @@
         <!-- Colonne formulaire -->
         <div class="col-md-6 bg-primary rounded p-4">
             <h2 class="text-light text-center mb-4">Nous contacter</h2>
-            <form class="d-flex flex-column align-items-center">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="d-flex flex-column align-items-center">
 
                 <!--Ligne Prénom-->
                 <div class="mb-3 w-100">
-                    <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" formControlName="prenom">
+                    @if (contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched) {
+                    <div class="text-warning small">
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne Nom-->
                 <div class="mb-3 w-100">
-                    <input type="text" class="form-control" id="nom" placeholder="Nom">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
+                    @if (contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched) {
+                    <div class="text-warning small">
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne email-->
                 <div class="mb-3 w-100">
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+                    @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                    <div class="text-warning small">
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne téléphone-->
                 <div class="mb-3 w-100">
-                    <input type="tel" class="form-control" id="telephone" placeholder="Téléphone">
+                    <input type="tel" inputmode="numeric" class="form-control" id="telephone" placeholder="Téléphone"
+                        formControlName="telephone">
+                    @if (contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched) {
+                    <div class="text-warning small">
+                        @if (contactForm.get('telephone')?.errors?.['required']) {
+                        <span>Le numéro de telephone est obligatoire.</span>
+                        }
+                        @if (contactForm.get('telephone')?.errors?.['pattern']) {
+                        <span>Veuillez entrer un numéro de téléphone valide.</span>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <!--Message-->
