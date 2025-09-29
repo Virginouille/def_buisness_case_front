@@ -1,4 +1,4 @@
-<!--Formulaire de contact-->
+<!--Formulaire de contact--> <!--Penser à facto les erreurs avec un component dedié-->
 <div class="container my-5">
     <div class="row justify-content-center">
 
@@ -11,7 +11,13 @@
                 <div class="mb-3 w-100">
                     <input type="text" class="form-control" id="prenom" placeholder="Prénom" formControlName="prenom">
                     @if (contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched) {
-                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
+                    <div class="text-warning small">
+                        @if (contactForm.get('prenom')?.errors?.['required']) {
+                        <span>Prénom obligatoire.</span>
+                        }
+                        @if (contactForm.get('prenom')?.errors?.['pattern']) {
+                        <span>Entrez un prénom valide.</span>
+                        }
                     </div>
                     }
                 </div>
@@ -20,7 +26,13 @@
                 <div class="mb-3 w-100">
                     <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
                     @if (contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched) {
-                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
+                    <div class="text-warning small">
+                        @if (contactForm.get('nom')?.errors?.['required']) {
+                        <span>Nom obligatoire.</span>
+                        }
+                        @if (contactForm.get('nom')?.errors?.['pattern']) {
+                        <span>Entrez un nom valide</span>
+                        }
                     </div>
                     }
                 </div>
@@ -29,7 +41,13 @@
                 <div class="mb-3 w-100">
                     <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
                     @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                    <div class="text-warning small"> <!--A completer avec les messages d'erreurs-->
+                    <div class="text-warning small">
+                        @if (contactForm.get('email')?.errors?.['required']) {
+                        <span>Email obligatoire.</span>
+                        }
+                        @if (contactForm.get('email')?.errors?.['email']) {
+                        <span>Entrez un email valide</span>
+                        }
                     </div>
                     }
                 </div>
@@ -41,7 +59,7 @@
                     @if (contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched) {
                     <div class="text-warning small">
                         @if (contactForm.get('telephone')?.errors?.['required']) {
-                        <span>Le numéro de telephone est obligatoire.</span>
+                        <span>Numéro de telephone obligatoire.</span>
                         }
                         @if (contactForm.get('telephone')?.errors?.['pattern']) {
                         <span>Veuillez entrer un numéro de téléphone valide.</span>
@@ -56,7 +74,17 @@
                     <textarea id="message" name="message" rows="5" class="form-control"
                         formControlName="message"></textarea>
                     @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
-                    <div class="text-warning small"></div><!--A completer avec les messages d'erreurs-->
+                    <div class="text-warning small">
+                        @if (contactForm.get('message')?.errors?.['required']) {
+                        <span>Message obligatoire.</span>
+                        }
+                        @if(contactForm.get('message')?.errors?.['minlength']) {
+                        <span>Message de 10 caractères minimum.</span>
+                        }
+                        @if(contactForm.get('message')?.errors?.['maxlength']) {
+                        <span>Message de 500 caractères maximum.</span>
+                        }
+                    </div>
                     }
                 </div>
 

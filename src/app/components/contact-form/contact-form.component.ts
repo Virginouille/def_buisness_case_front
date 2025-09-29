@@ -28,7 +28,7 @@ export class ContactFormComponent {
       nom: ['', [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÿ\s-]{2,}$/)]],
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', [Validators.required, Validators.pattern(/^(?:[0-9] ?){10}$/)]], //Numéro de téléphone avec possibiliés de point et d'espaces
-      message: ['', Validators.required]
+      message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]]
     });
   }
 
