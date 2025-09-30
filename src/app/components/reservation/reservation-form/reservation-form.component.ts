@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reservation-form',
@@ -9,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class ReservationFormComponent {
 
+  reservationForm: FormGroup
+  submitEnable = false //Par défaut le bout est désactivé
+
+  //Structure du form
+  constructor(private fb: FormBuilder) {
+    this.reservationForm = this.fb.group({
+    }) // en construction
+  }
 }

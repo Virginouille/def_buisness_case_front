@@ -9,17 +9,17 @@
         <!-- Colonne formulaire -->
         <div class="col-md-7 bg-primary rounded">
             <h2 class="text-light text-center my-4">Créer un compte</h2>
-            <form>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <!--Ligne Prénom et nom-->
                 <div class="row zonePrenomEtNom">
                     <div class="col-6 mb-3">
                         <label for="prenom" class="form-label"></label>
                         <input type="text" class="form-control" id="prenom" placeholder="Prenom"
-                            aria-describedby="PrenomInscription">
+                            aria-describedby="PrenomInscription" formControlName="prenom">
                     </div>
                     <div class="col-6 mb-3">
                         <label for="nom" class="form-label"></label>
-                        <input type="text" class="form-control" id="nom" placeholder="Nom"
+                        <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom"
                             aria-describedby="NomInscription">
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <!--Ligne email-->
                 <div class="mb-3">
                     <label for="email" class="form-label text-light"></label>
-                    <input type="email" class="form-control" id="email" placeholder="Email"
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
                         aria-describedby="EmailInscription">
                 </div>
 
@@ -36,11 +36,11 @@
                     <div class="col-6 mb-3">
                         <label for="telephone" class="form-label"></label>
                         <input type="tel" class="form-control" id="telephone" placeholder="Téléphone"
-                            aria-describedby="TelephoneInscription">
+                            formControlName="telephone" aria-describedby="TelephoneInscription">
                     </div>
                     <div class="col-6 mb-3">
                         <label for="dateDeNaissance" class="form-label"></label>
-                        <input type="date" class="form-control" id="dateDeNaissance"
+                        <input type="date" class="form-control" id="dateDeNaissance" formControlName="dateDeNaissance"
                             aria-describedby="DateDeNaissanceInscription">
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                 <!--Ligne adresse-->
                 <div class="mb-3">
                     <label for="adresse" class="form-label"></label>
-                    <input type="text" class="form-control" id="adresse" placeholder="Adresse"
+                    <input type="text" class="form-control" id="adresse" placeholder="Adresse" formControlName="adresse"
                         aria-describedby="AdresseInscription">
                 </div>
 
@@ -56,32 +56,33 @@
                 <div class="row zoneVilleEtCodePostal">
                     <div class="col-6 mb-3">
                         <label for="ville" class="form-label"></label>
-                        <input type="text" class="form-control" id="ville" placeholder="Ville"
+                        <input type="text" class="form-control" id="ville" placeholder="Ville" formControlName="ville"
                             aria-describedby="VilleInscription">
                     </div>
                     <div class="col-6 mb-3">
                         <label for="codepostal" class="form-label"></label>
                         <input type="number" class="form-control" id="codepostal" placeholder="Code postal"
-                            aria-describedby="CodePostalInscription">
+                            formControlName="codePostal" aria-describedby="CodePostalInscription">
                     </div>
                 </div>
 
                 <!--Ligne mot de passe-->
                 <div class="mb-3">
                     <label for="motdepasse" class="form-label text-light"></label>
-                    <input type="password" class="form-control" id="motdepasse" placeholder="Mot de passe">
+                    <input type="password" class="form-control" id="motdepasse" placeholder="Mot de passe"
+                        formControlName="motDePasse">
                 </div>
 
                 <!--Ligne confirmation mot de passe-->
                 <div class="mb-3">
                     <label for="confirmationmotdepasse" class="form-label text-light"></label>
                     <input type="password" class="form-control" id="confirmationmotdepasse"
-                        placeholder="Confirmation mot de passe">
+                        placeholder="Confirmation mot de passe" formControlName="confirmationMotDePasse">
                 </div>
 
                 <!--Ligne Checkbox-->
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="checkbox" required>
+                    <input type="checkbox" class="form-check-input" id="checkbox" formControlName="checkbox">
                     <label class="form-check-label text-light" for="checkbox">
                         J’accepte la politique de
                         confidentialité
