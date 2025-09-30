@@ -15,12 +15,32 @@
                     <div class="col-6 mb-3">
                         <label for="prenom" class="form-label"></label>
                         <input type="text" class="form-control" id="prenom" placeholder="Prenom"
-                            aria-describedby="PrenomInscription" formControlName="prenom">
+                            aria-describedby="PrenomInscription" formControlName="prenom" appCapitalizeName>
+                        @if (registerForm.get('prenom')?.invalid && registerForm.get('prenom')?.touched) {
+                        <div class="text-warning small">
+                            @if (registerForm.get('prenom')?.errors?.['required']) {
+                            <span>Prénom obligatoire.</span>
+                            }
+                            @if (registerForm.get('prenom')?.errors?.['pattern']) {
+                            <span>Entrez un prénom valide.</span>
+                            }
+                        </div>
+                        }
                     </div>
                     <div class="col-6 mb-3">
                         <label for="nom" class="form-label"></label>
                         <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom"
-                            aria-describedby="NomInscription">
+                            appCapitalizeName aria-describedby="NomInscription">
+                        @if (registerForm.get('nom')?.invalid && registerForm.get('nom')?.touched) {
+                        <div class="text-warning small">
+                            @if (registerForm.get('nom')?.errors?.['required']) {
+                            <span>Nom obligatoire.</span>
+                            }
+                            @if (registerForm.get('nom')?.errors?.['pattern']) {
+                            <span>Entrez un nom valide.</span>
+                            }
+                        </div>
+                        }
                     </div>
                 </div>
 
@@ -28,20 +48,46 @@
                 <div class="mb-3">
                     <label for="email" class="form-label text-light"></label>
                     <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
-                        aria-describedby="EmailInscription">
+                        appEmailNormalize aria-describedby="EmailInscription">
+                    @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+                    <div class="text-warning small">
+                        @if (registerForm.get('email')?.errors?.['required']) {
+                        <span>Email obligatoire.</span>
+                        }
+                        @if (registerForm.get('email')?.errors?.['email']) {
+                        <span>Entrez un email valide</span>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne téléphone et date de naissance-->
                 <div class="row zoneNumeroEtDateDeNaissance">
                     <div class="col-6 mb-3">
                         <label for="telephone" class="form-label"></label>
-                        <input type="tel" class="form-control" id="telephone" placeholder="Téléphone"
-                            formControlName="telephone" aria-describedby="TelephoneInscription">
+                        <input type="tel" inputmode="numeric" class="form-control" id="telephone"
+                            placeholder="Téléphone" formControlName="telephone" (input)="onTelephoneInput($event)"
+                            aria-describedby="TelephoneInscription">
+                        @if (registerForm.get('telephone')?.invalid && registerForm.get('telephone')?.touched) {
+                        <div class="text-warning small">
+                            @if (registerForm.get('telephone')?.errors?.['required']) {
+                            <span>Numéro de telephone obligatoire.</span>
+                            }
+                            @if (registerForm.get('telephone')?.errors?.['pattern']) {
+                            <span>Veuillez entrer un numéro de téléphone valide.</span>
+                            }
+                        </div>
+                        }
                     </div>
                     <div class="col-6 mb-3">
                         <label for="dateDeNaissance" class="form-label"></label>
                         <input type="date" class="form-control" id="dateDeNaissance" formControlName="dateDeNaissance"
                             aria-describedby="DateDeNaissanceInscription">
+                        <div class="text-warning small">
+                            @if (registerForm.get('dateDeNaissance')?.errors?.['required']) {
+                            <span>Date de naissance obligatoire</span>
+                            }
+                        </div>
                     </div>
                 </div>
 

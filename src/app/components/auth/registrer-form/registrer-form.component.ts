@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CapitalizeNameDirective } from '../../../directives/capitalize-name.directive';
+import { EmailNormalizeDirective } from '../../../directives/email-normalize.directive';
 
 @Component({
   selector: 'app-registrer-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CapitalizeNameDirective, EmailNormalizeDirective],
   templateUrl: './registrer-form.component.html',
   styleUrl: './registrer-form.component.css'
 })
@@ -45,5 +47,32 @@ export class RegistrerFormComponent {
     } else {
       console.log('Formulaire invalide');
     }
+  }
+
+  /*Méthode filtrer le champs téléphone*/
+  onTelephoneInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    // Garder uniquement les chiffres
+    let numericValue = input.value.replace(/[^0-9]/g, '');
+
+    // Limiter à 10 chiffres
+    if (numericValue.length > 10) {
+      numericValue = numericValue.substring(0, 10);
+    }
+
+    //Mise à jour du champ du formulaire sans déclencher valueChanges
+    this.registerForm.get('telephone')?.setValue(numericValue, { emitEvent: false });
+
+    //Formatage en blocs de 2 chiffres
+    let formattedValue = '';
+    for (let i = 0; i < numericValue.length; i += 2) {
+      if (i > 0) formattedValue += ' ';
+      formattedValue += numericValue.substring(i, i + 2);
+    }
+
+    //Met à jour le FormControl et l'input
+    this.registerForm.get('telephone')?.setValue(formattedValue, { emitEvent: false });
+    input.value = formattedValue; // met à jour l'affichage réel
   }
 }
