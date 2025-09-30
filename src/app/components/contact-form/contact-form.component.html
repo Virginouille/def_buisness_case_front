@@ -9,7 +9,8 @@
 
                 <!--Ligne Prénom-->
                 <div class="mb-3 w-100">
-                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" formControlName="prenom">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" formControlName="prenom"
+                        appCapitalizeName>
                     @if (contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched) {
                     <div class="text-warning small">
                         @if (contactForm.get('prenom')?.errors?.['required']) {
@@ -24,7 +25,8 @@
 
                 <!--Ligne Nom-->
                 <div class="mb-3 w-100">
-                    <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom"
+                        appCapitalizeName>
                     @if (contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched) {
                     <div class="text-warning small">
                         @if (contactForm.get('nom')?.errors?.['required']) {
