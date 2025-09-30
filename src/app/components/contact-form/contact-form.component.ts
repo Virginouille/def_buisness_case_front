@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CapitalizeNameDirective } from "../../directives/capitalize-name.directive";
+import { EmailNormalizeDirective } from '../../directives/email-normalize.directive';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CapitalizeNameDirective],
+  imports: [ReactiveFormsModule, CapitalizeNameDirective, EmailNormalizeDirective],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
 })
@@ -15,13 +16,7 @@ export class ContactFormComponent {
   contactForm: FormGroup;
   submitEnabled = false; // par défaut le bouton est désactivé
 
-  /**Méthode à l'initialisation du composant */
-  ngOnInit() {
-    this.contactForm.valueChanges.subscribe(() => {
-      // active le bouton seulement si le formulaire est valide
-      this.submitEnabled = this.contactForm.valid;
-    });
-  }
+  @ViewChild(EmailNormalizeDirective) emailNormaliser!: EmailNormalizeDirective
 
   //Structure du formulaire
   constructor(private fb: FormBuilder) {
@@ -34,8 +29,20 @@ export class ContactFormComponent {
     });
   }
 
+  /**Méthode à l'initialisation du composant */
+  ngOnInit() {
+    this.contactForm.valueChanges.subscribe(() => {
+      // active le bouton seulement si le formulaire est valide
+      this.submitEnabled = this.contactForm.valid;
+    });
+  }
+
   /*Méthode gestion de la soumission du formulaire de contact*/
   onSubmit() {
+
+    //Normalise l'email avant d'envoyer le forumlaire
+    this.emailNormaliser?.normalizeControl();
+
     if (this.contactForm.valid) {
       console.log('Formulaire de contact soumis :', this.contactForm.value);
       //penser à utiliser http client pour envoyer au back créer un service

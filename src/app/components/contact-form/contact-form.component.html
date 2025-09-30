@@ -41,7 +41,8 @@
 
                 <!--Ligne email-->
                 <div class="mb-3 w-100">
-                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+                        appEmailNormalize>
                     @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
                     <div class="text-warning small">
                         @if (contactForm.get('email')?.errors?.['required']) {
