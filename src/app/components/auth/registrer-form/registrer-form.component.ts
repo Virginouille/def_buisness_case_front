@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { CapitalizeNameDirective } from '../../../directives/capitalize-name.directive';
 import { EmailNormalizeDirective } from '../../../directives/email-normalize.directive';
 
@@ -25,10 +25,10 @@ export class RegistrerFormComponent {
       adresse: ['', [Validators.required, Validators.pattern(/^[0-9]{1,4}\s+[A-Za-zÀ-ÖØ-öø-ÿ'’\-\s]+$/)]], //Adresse commence par 1 à 4 chiffres avec au moins un espace et suivi de lettres
       ville: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿ'’\-\s]+$/)]], //lettres avec accents,autorise apostrophes droites ou courbes, les tirets et les espaces. Au moins un caractère
       codePostal: ['', [Validators.required, Validators.pattern(/^[0-9]{5}$/)]], //code postal à 5 chiffres
-      motDePasse: ['', Validators.required],
+      motDePasse: ['', [Validators.required, Validators.pattern(/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*()_\-+=\[\]{};:'",.<>\/?\\|`~]).*$/)]],
       confirmationMotDePasse: ['', Validators.required],
-      checkbox: [false, Validators.required]
-    })
+      checkbox: [false, Validators.requiredTrue]
+    }, { validators: this.passwordMatchValidator });
   }
 
   /**Méthode à l'initialisation du composant */
@@ -74,5 +74,15 @@ export class RegistrerFormComponent {
     //Met à jour le FormControl et l'input
     this.registerForm.get('telephone')?.setValue(formattedValue, { emitEvent: false });
     input.value = formattedValue; // met à jour l'affichage réel
+  }
+
+  /**Méthode vérifie que la confirmation de mot de passe est identitque à l'input mot de passe */
+  private passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const password = control.get('motDePasse')?.value;
+    const confirm = control.get('confirmationMotDePasse')?.value;
+    if (password && confirm && password !== confirm) {
+      return { passwordMismatch: true }
+    }
+    return null;
   }
 }

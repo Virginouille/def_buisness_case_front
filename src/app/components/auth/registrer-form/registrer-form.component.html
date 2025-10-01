@@ -96,6 +96,16 @@
                     <label for="adresse" class="form-label"></label>
                     <input type="text" class="form-control" id="adresse" placeholder="Adresse" formControlName="adresse"
                         aria-describedby="AdresseInscription">
+                    @if (registerForm.get('adresse')?.invalid && registerForm.get('adresse')?.touched) {
+                    <div class="text-warning small">
+                        @if (registerForm.get('adresse')?.errors?.['required']) {
+                        <span>Adresse obligatoire.</span>
+                        }
+                        @if (registerForm.get('adresse')?.errors?.['pattern']) {
+                        <span>Veuillez entrer une adresse valide.</span>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne ville et code postal-->
@@ -104,11 +114,31 @@
                         <label for="ville" class="form-label"></label>
                         <input type="text" class="form-control" id="ville" placeholder="Ville" formControlName="ville"
                             aria-describedby="VilleInscription">
+                        @if (registerForm.get('ville')?.invalid && registerForm.get('ville')?.touched) {
+                        <div class="text-warning small">
+                            @if (registerForm.get('ville')?.errors?.['required']) {
+                            <span>Ville obligatoire.</span>
+                            }
+                            @if (registerForm.get('ville')?.errors?.['pattern']) {
+                            <span>Veuillez entrer un nom de ville valide.</span>
+                            }
+                        </div>
+                        }
                     </div>
                     <div class="col-6 mb-3">
                         <label for="codepostal" class="form-label"></label>
                         <input type="number" class="form-control" id="codepostal" placeholder="Code postal"
                             formControlName="codePostal" aria-describedby="CodePostalInscription">
+                        @if (registerForm.get('codePostal')?.invalid && registerForm.get('codePostal')?.touched) {
+                        <div class="text-warning small">
+                            @if (registerForm.get('codePostal')?.errors?.['required']) {
+                            <span>Code postal obligatoire.</span>
+                            }
+                            @if (registerForm.get('codePostal')?.errors?.['pattern']) {
+                            <span>Veuillez entrer un code postal valide.</span>
+                            }
+                        </div>
+                        }
                     </div>
                 </div>
 
@@ -117,6 +147,17 @@
                     <label for="motdepasse" class="form-label text-light"></label>
                     <input type="password" class="form-control" id="motdepasse" placeholder="Mot de passe"
                         formControlName="motDePasse">
+                    @if (registerForm.get('motDePasse')?.invalid && registerForm.get('motDePasse')?.touched) {
+                    <div class="text-warning small">
+                        @if (registerForm.get('motDePasse')?.errors?.['required']) {
+                        <span>Mot de passe obligatoire.</span>
+                        }
+                        @if (registerForm.get('motDePasse')?.errors?.['pattern']) {
+                        <span>Veuillez entrer un mot de passe valide : 8 caractères, 1 minuscule, 1 majuscule, 1 chiffre
+                            et 1 caractère spécial.</span>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne confirmation mot de passe-->
@@ -124,11 +165,27 @@
                     <label for="confirmationmotdepasse" class="form-label text-light"></label>
                     <input type="password" class="form-control" id="confirmationmotdepasse"
                         placeholder="Confirmation mot de passe" formControlName="confirmationMotDePasse">
+                    @if(registerForm.get('confirmationMotDePasse')?.touched ||
+                    registerForm.get('confirmationMotDePasse')?.dirty) {
+                    <div class="text-warning small">
+                        @if(registerForm.get('confirmationMotDePasse')?.errors?.['required']) {
+                        <span>Confirmation obligatoire.</span>
+                        }
+                        @if(registerForm.hasError('passwordMismatch')) {
+                        <span>Les mots de passe ne correspondent pas.</span>
+                        }
+                    </div>
+                    }
                 </div>
 
                 <!--Ligne Checkbox-->
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="checkbox" formControlName="checkbox">
+                    @if(registerForm.get('checkbox')?.touched && registerForm.get('checkbox')?.errors?.['required']) {
+                    <div class="text-warning small">
+                        Vous devez accepter la politique de confidentialité.
+                    </div>
+                    }
                     <label class="form-check-label text-light" for="checkbox">
                         J’accepte la politique de
                         confidentialité
