@@ -13,7 +13,7 @@ import { EmailNormalizeDirective } from '../../../directives/email-normalize.dir
 export class RegistrerFormComponent {
 
   registerForm: FormGroup;
-  submitEnabled = false; // par défaut le bouton est désactivé
+  submitEnabled = false; // par défaut le bouton s'enregistrer est désactivé
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
